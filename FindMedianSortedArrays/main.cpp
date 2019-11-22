@@ -1,6 +1,15 @@
 #include <iostream>
 #include <vector>
 
+void printVector(const std::vector<int>& vec)
+{
+    for (auto v : vec)
+    {
+        std::cout << v << " ";
+    }
+    std::cout << std::endl;
+}
+
 class Solution
 {
 public:
@@ -49,6 +58,10 @@ public:
     }
     double divideFind(const std::vector<int>& nums1, const std::vector<int>& nums2)
     {
+        std::cout << "nums1: ";
+        printVector(nums1);
+        std::cout << "nums2: ";
+        printVector(nums2);
         if (nums1.empty() == true && nums2.empty() == false)
         {
             return getMedia(nums2);
@@ -69,6 +82,11 @@ public:
             double Lmax2, Rmin2;
             getLmaxRmin(nums1, Lmax1, Rmin1);
             getLmaxRmin(nums2, Lmax2, Rmin2);
+
+            std::cout << "media1: " << media1 << ", media2: " << media2 << std::endl;
+            std::cout << "media_index1: " << media_index1 << ", media_index2: " << media_index2 << std::endl;
+            std::cout << "Lmax1: " << Lmax1 << ", Lmax2: " << Lmax2 << std::endl;
+            std::cout << "Rmin1: " << Rmin1 << ", Rmin2: " << Rmin2 << std::endl;
 
             if (Lmax1 <= Rmin2 && Lmax2 <= Rmin1)
             {
